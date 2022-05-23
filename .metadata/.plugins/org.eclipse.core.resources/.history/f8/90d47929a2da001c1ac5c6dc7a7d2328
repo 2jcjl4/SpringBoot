@@ -1,0 +1,27 @@
+package com.qa.SpringbootExample.domain;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class User {
+
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
+	// able to change the name in the database thats auto generated
+	@Column(name = "firstName")
+	private String firstName; // firstName
+	
+	@Column
+	private String lastName; // last_name
+	
+	@Column
+	private String username; // username
+	
+	
+}
