@@ -14,6 +14,7 @@ spring.datasource.password=
 spring.h2.console.path=/h2-console
 
 # shows hibernate SQL ( not needed but useful ) 
+
 spring.jpa.show-sql= true
 #fixes global issue with user being taken
 spring.jpa.properties.hibernate.globally_quoted_identifiers=true
@@ -21,8 +22,7 @@ spring.jpa.properties.hibernate.globally_quoted_identifiers=true
 
 #USED FOR CONNECTING TO MYSQL
 
-#auto generate
-#spring.database.url=jdbc:mysql://localhost:3306/my_db?createDatabaseIfNotExist=true
+#spring.database.url=jdbc:mysql://localhost:3306/my_db?createDatabase
 
 #spring.datasource.url=jdbc:mysql://localhost:3306/my_db
 #spring.datasource.username=root
