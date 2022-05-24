@@ -7,7 +7,6 @@ INDEX VERSION 1.131+C:\Users\2jcjl\Desktop\Week7SpringBoot\.metadata\.plugins\or
 1401751967.index
 2021867997.index
 2524754730.index
-2986351216.index
 6901951.index
 1052258046.index
 230026725.index
