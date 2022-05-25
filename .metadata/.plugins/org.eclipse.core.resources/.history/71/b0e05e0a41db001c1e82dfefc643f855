@@ -1,0 +1,34 @@
+
+# enable the H2 console
+spring.h2.console.enabled=true
+
+# Set the JDBC URL
+spring.datasource.url=jdbc:h2:mem:testdb
+
+# default username and password
+#no need to change as its being used locally only
+spring.datasource.username=sa
+spring.datasource.password=
+
+# configures the URL for the console window
+spring.h2.console.path=/h2-console
+
+# shows hibernate SQL ( not needed but useful ) 
+
+spring.jpa.show-sql= true
+#fixes global issue with user being taken
+spring.jpa.properties.hibernate.globally_quoted_identifiers=true
+
+
+#USED FOR CONNECTING TO MYSQL
+
+#spring.database.url=jdbc:mysql://localhost:3306/my_db?createDatabase
+
+#spring.datasource.url=jdbc:mysql://localhost:3306/my_db
+#spring.datasource.username=root
+#spring.datasource.password=pass
+#spring.jpa.hibernate.ddl-auto=update
+#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+#spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+#spring.sql.init.mode=always
+#spring.jpa.show-sql=true

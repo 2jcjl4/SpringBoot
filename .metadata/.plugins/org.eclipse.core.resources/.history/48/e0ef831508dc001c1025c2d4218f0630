@@ -1,0 +1,5 @@
+package com.qa.SpringbootExample.Services;
+
+public class UserService {
+
+}
