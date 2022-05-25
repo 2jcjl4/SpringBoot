@@ -26,6 +26,7 @@ public class UserController {
 	}
 	
 	// Read --> get
+	
 	// Testing get method
 //	@GetMapping("/hello")
 //	public String hello() {
@@ -67,7 +68,7 @@ public class UserController {
 	
 	// Delete --> Delete @DeleteMapping
 	@DeleteMapping("/delete/{id}")
-	public User delete(@PathVariable long id) { 
+	public boolean delete(@PathVariable long id) { 
 		return service.delete(id);
 	}
 	

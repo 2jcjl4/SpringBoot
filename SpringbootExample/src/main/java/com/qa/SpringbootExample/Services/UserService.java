@@ -12,45 +12,66 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.qa.SpringbootExample.domain.User;
+import com.qa.SpringbootExample.repo.UserRepo;
 
 @Service
 public class UserService {
 
-	// Temp storage, until the real database is implemeted 
-	private List<User> users = new ArrayList<>();
+	private UserRepo repo;
 	
-
-	public List<User> getAll(){
-		return users;
+	public UserService(UserRepo repo) {
+		this.repo = repo;
 	}
 	
 
-	public User getById(long id){
-		return users.get((int)id);
-	}
-	
-
+	// Create
 	public User create(User user) {
-		user.setId(users.size()+1);
-		users.add(user);
-		return users.get(users.size()-1);
+		// Happens instantl
+		return repo.saveAndFlush(user);
 	}
+	
+	
+	// ReadAll
+	public List<User> getAll(){
+		return repo.findAll();
+	}
+	
+	
+	// Read By ID
+	public User getById(long id){
+		return repo.findById(id).get();
+	}
+	
+	
+	// Update
+	public User update(long id, User user){
+		// get the entry that exists
+		User existing = repo.findById(id).get();
+		
+		// Update the entry using a new object 
+		existing.setFirstName(user.getFirstName());
+		existing.setLastName(user.getLastName());
+		existing.setUsername(user.getUsername());
+		
+		return repo.saveAndFlush(existing);
+	}
+	
+	
+	// Delete
+	public boolean delete(long id) { 
+		repo.deleteById(id);
+		return !repo.existsById(id);
+	}
+
 
 	
-	public User update(long id, User user){
-		//Remove original user
-		users.remove((int)id);
-		//Add the updated user
-		users.add((int)id,user);
-		//return the update for the user to see
-		return users.get((int)id);
-
-	}
 
 
-	public User delete(long id) { 
-		return users.remove((int)id);
-	}
+
+	
+	
+
+
 
 
 
