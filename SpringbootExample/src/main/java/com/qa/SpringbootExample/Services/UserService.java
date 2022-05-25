@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.qa.SpringbootExample.Exception.UserNotFoundException;
+import com.qa.SpringbootExample.Exception.UserNotFoundExceptionWithID;
 import com.qa.SpringbootExample.domain.User;
 import com.qa.SpringbootExample.repo.UserRepo;
 
@@ -39,8 +41,16 @@ public class UserService {
 	
 	// Read By ID
 	public User getById(long id){
-		return repo.findById(id).get();
+		// Different ways of getting the same results
+//		return repo.findById(id).get();
+//		return repo.findById(id).orElseThrow(UserNotFoundException::new);
+		return repo.findById(id).orElseThrow(() -> new UserNotFoundExceptionWithID(id));
 	}
+	
+	public List<User> getByFirstName(String name){
+		return repo.findByFirstName(name);
+	}
+	
 	
 	
 	// Update
