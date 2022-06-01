@@ -28,7 +28,7 @@ public class UserService {
 
 	// Create
 	public User create(User user) {
-		// Happens instantl
+		// Happens instantly
 		return repo.saveAndFlush(user);
 	}
 	
@@ -42,9 +42,9 @@ public class UserService {
 	// Read By ID
 	public User getById(long id){
 		// Different ways of getting the same results
-//		return repo.findById(id).get();
+		return repo.findById(id).get();
 //		return repo.findById(id).orElseThrow(UserNotFoundException::new);
-		return repo.findById(id).orElseThrow(() -> new UserNotFoundExceptionWithID(id));
+//		return repo.findById(id).orElseThrow(() -> new UserNotFoundExceptionWithID(id));
 	}
 	
 	public List<User> getByFirstName(String name){
